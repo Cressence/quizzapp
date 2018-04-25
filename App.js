@@ -16,6 +16,7 @@ import { Router, Scene } from 'react-native-router-flux';
 import Splash from './src/Splash/Splash';
 import Welcome from './src/Welcome/Welcome';
 import Category from './src/Category/Category';
+import Quiz from './src/Quiz/Quiz';
 
 class App extends Component {
       
@@ -39,6 +40,12 @@ class App extends Component {
           component={Category}
           leftButtonIconStyle={{tintColor: '#fff'}} 
           title="Appname" 
+          hideTabBar />
+          <Scene 
+          key="quiz" 
+          component={Quiz}
+          leftButtonIconStyle={{tintColor: '#fff'}} 
+          title="Question" 
           hideTabBar />
           </Scene>
       </Router>

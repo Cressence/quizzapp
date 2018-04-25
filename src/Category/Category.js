@@ -15,7 +15,7 @@ import { Actions } from 'react-native-router-flux';
 class Category extends Component {
 
       showQuestion(){
-        // Actions.home();
+        Actions.quiz();
     }
 
   render() {
@@ -48,9 +48,7 @@ class Category extends Component {
             onPress={this.showQuestion}>
                 <Text style={styles.categoryName}>Engineering</Text>
             </TouchableOpacity>
-        </ScrollView>
-        
-        
+        </ScrollView> 
       </View>
     );
   }
@@ -61,7 +59,7 @@ export default Category;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#012C3D',
+    backgroundColor: '#fff',
     paddingTop: 20,
     paddingBottom: 20,
   },
