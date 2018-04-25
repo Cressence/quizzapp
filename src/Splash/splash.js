@@ -8,19 +8,12 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
-  Text,
-  View
+  Image,
+  View,
+  Text
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
 class Splash extends Component {
     componentDidMount() {
         // setTimeout(() => Actions.welcome(), 3000);
@@ -29,15 +22,8 @@ class Splash extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <Image source={require('./../assets/logo.png')} style={styles.logo} />
+        <Text style={styles.appname}>Appname</Text>
       </View>
     );
   }
@@ -48,17 +34,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#012C3D',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  logo: {
+    height:  100,
+    width: 100,
+    borderRadius: 50,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  appname: {
+    color: "#fff",
+    fontSize: 30,
+    marginTop: 5,
   },
 });
 
