@@ -16,7 +16,7 @@ import { Actions } from 'react-native-router-flux';
 
 class Splash extends Component {
     componentDidMount() {
-        // setTimeout(() => Actions.welcome(), 3000);
+        setTimeout(() => Actions.welcome(), 3000);
       }
       
   render() {
