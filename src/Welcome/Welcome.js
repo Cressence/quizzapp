@@ -10,6 +10,7 @@ import {
 
 import { Actions } from 'react-native-router-flux';
   
+// Todo: remove back button
 
 class Welcome extends Component {
 

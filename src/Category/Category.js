@@ -12,42 +12,54 @@ import { Actions } from 'react-native-router-flux';
   
 // Todo: add good font family to categoryName
 // Todo: style the entire screen
+
 class Category extends Component {
 
-      showQuestion(){
-        Actions.quiz();
+  constructor(){
+    super();
+    this.fields = [{
+      id: 1,
+      text: "Engineering"
+    }, {
+      id: 2,
+      text: "Agriculture"
+    }, {
+      id: 3,
+      text: "Business"
+    } , {
+      id: 4,
+      text: "Communications"
+    } , {
+      id: 5,
+      text: "Health Science"
+    }, {
+      id: 6,
+      text: "Health Service"
     }
+    ];
+  }
 
+  showQues(sentId){
+      Actions.quiz(sentId);
+  }
+    
   render() {
     return (
       <View style={styles.container}>
         <ScrollView keyboardDismissMode='on-drag'>
         <Text style={styles.instruction}>Select a category</Text>
-            <TouchableOpacity 
-            style={styles.category}
-            onPress={this.showQuestion}>
-                <Text style={styles.categoryName}>Engineering</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-            style={styles.categoryTwo}
-            onPress={this.showQuestion}>
-                <Text style={styles.categoryName}>Engineering</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-            style={styles.categoryThree}
-            onPress={this.showQuestion}>
-                <Text style={styles.categoryName}>Engineering</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-            style={styles.categoryFour}
-            onPress={this.showQuestion}>
-                <Text style={styles.categoryName}>Engineering</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-            style={styles.categoryFive}
-            onPress={this.showQuestion}>
-                <Text style={styles.categoryName}>Engineering</Text>
-            </TouchableOpacity>
+
+          {
+            this.fields.map(( item, key ) =>
+            (
+              <TouchableOpacity 
+                style={styles.category}
+                onPress={() =>this.showQues({sentId: item.id})}
+                key={key} >
+                    <Text style={styles.categoryName}>{item.text}</Text>
+              </TouchableOpacity>
+            ))
+          }
         </ScrollView> 
       </View>
     );
@@ -67,41 +79,9 @@ const styles = StyleSheet.create({
     padding: 10,
     marginHorizontal: 60,
     marginVertical: 15,
-    backgroundColor: 'darkblue',
     height: 70,
     borderRadius: 5,
-  },
-  categoryTwo: {
-    padding: 10,
-    marginHorizontal: 60,
-    marginVertical: 15,
-    backgroundColor: 'purple',
-    height: 70,
-    borderRadius: 5,
-  },
-  categoryThree: {
-    padding: 10,
-    marginHorizontal: 60,
-    marginVertical: 15,
-    backgroundColor: 'violet',
-    height: 70,
-    borderRadius: 5,
-  },
-  categoryFour: {
-    padding: 10,
-    marginHorizontal: 60,
-    marginVertical: 15,
-    backgroundColor: 'grey',
-    height: 70,
-    borderRadius: 5,
-  },
-  categoryFive: {
-    padding: 10,
-    marginHorizontal: 60,
-    marginVertical: 15,
-    backgroundColor: 'skyblue',
-    height: 70,
-    borderRadius: 5,
+    backgroundColor: '#012C3D'
   },
   categoryName: {
     alignItems: 'center',
@@ -110,7 +90,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   instruction: {
-    color: '#fff',
+    color: '#012C3D',
     fontSize: 20,
     alignItems: 'center',
     alignSelf: 'center',
