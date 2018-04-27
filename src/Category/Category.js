@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
+import { Header, Left, Body, Button, Icon, Title } from 'native-base';
   
 // Todo: add good font family to categoryName
 // Todo: style the entire screen
@@ -19,22 +20,28 @@ class Category extends Component {
     super();
     this.fields = [{
       id: 1,
-      text: "Engineering"
+      text: "Engineering",
+      icon: "print"
     }, {
       id: 2,
-      text: "Agriculture"
+      text: "Agriculture",
+      icon: "cog"
     }, {
       id: 3,
-      text: "Business"
+      text: "Business",
+      icon: "film"
     } , {
       id: 4,
-      text: "Communications"
+      text: "Communications",
+      icon: "flame"
     } , {
       id: 5,
-      text: "Health Science"
+      text: "Health Science",
+      icon: "bulb"
     }, {
       id: 6,
-      text: "Health Service"
+      text: "Health Service",
+      icon: "eye"
     }
     ];
   }
@@ -42,22 +49,40 @@ class Category extends Component {
   showQues(sentId){
       Actions.quiz(sentId);
   }
+
+  back(){
+    Actions.welcome();
+}
     
   render() {
     return (
       <View style={styles.container}>
+        <Header style={styles.header}>
+          <Left>
+            <Button transparent
+            onPress={this.back}>
+              <Icon name='arrow-back' />
+            </Button>
+          </Left>
+          <Body>
+            <Title style={{fontFamily: 'lucida grande'}}>QUIZZY</Title>
+          </Body>
+        </Header>
         <ScrollView keyboardDismissMode='on-drag'>
         <Text style={styles.instruction}>Select a category</Text>
 
           {
             this.fields.map(( item, key ) =>
             (
-              <TouchableOpacity 
+              <Button
                 style={styles.category}
                 onPress={() =>this.showQues({sentId: item.id})}
-                key={key} >
-                    <Text style={styles.categoryName}>{item.text}</Text>
-              </TouchableOpacity>
+                key={key}
+                block
+               iconLeft >
+                <Icon name={item.icon} />
+                <Text style={styles.categoryName}>{item.text}</Text>
+              </Button>
             ))
           }
         </ScrollView> 
@@ -71,28 +96,29 @@ export default Category;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: 20,
-    paddingBottom: 20,
+    backgroundColor: '#283747',
   },
   category: {
-    padding: 10,
-    marginHorizontal: 60,
-    marginVertical: 15,
-    height: 70,
+    marginHorizontal: 20,
+    marginVertical: 5,
+    height: 50,
     borderRadius: 5,
-    backgroundColor: '#012C3D'
+    backgroundColor: '#2E4053',
+  },
+  header : {
+    backgroundColor: '#283747',
+
   },
   categoryName: {
-    alignItems: 'center',
-    alignSelf: 'center',
     color: '#fff',
-    fontSize: 30,
+    fontSize: 20,
+    marginHorizontal: 60,
+    marginVertical: 40,
   },
   instruction: {
-    color: '#012C3D',
+    color: '#fff',
     fontSize: 20,
-    alignItems: 'center',
-    alignSelf: 'center',
+    marginVertical: 10,
+    marginHorizontal: 20
   },
 });

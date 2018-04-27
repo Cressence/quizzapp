@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
-  Text,
   Image,
   TouchableOpacity,
   View
 } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
-  
-// Todo: remove back button
+import { Button, Text } from 'native-base';
 
 class Welcome extends Component {
 
@@ -19,28 +17,37 @@ class Welcome extends Component {
     }
 
   render() {
+
+    const backgroundImg = require('./../assets/pic3.jpg');
+    const resizeMode = 'contain';
+
     return (
       <View style={styles.container}>
-        <View>
-            <Image source={require('./../assets/pic1.png')} style={styles.animation} />
-        </View>
-        <View>
-            <Image source={require('./../assets/logo.png')} style={styles.animation2} />
-        </View>
-        <View>
+            <Image 
+              source={backgroundImg}
+              style={{
+                backgroundColor: '#000',
+                flex: 1,
+                resizeMode,
+                position: 'absolute',
+                width: 970,
+                height: '100%',
+                justifyContent: 'center',}}
+            />
+        <View style={styles.textBox}>
             <Text style={styles.title}>
-                Find the best path by shaping your dreams with appname
+                Find the best path in achieving your dreams with QUIZZY
             </Text>
+            
+            <Button
+            style={styles.button}
+            onPress={this.showField}
+             rounded>
+              <Text style={styles.btnText}>
+                Start
+              </Text>
+            </Button>
         </View>
-
-        <TouchableOpacity 
-        style={styles.button}
-        onPress={this.showField}>
-            <Text style={styles.btnText}>
-            Take Quiz
-            </Text>
-        </TouchableOpacity>
-        
       </View>
     );
   }
@@ -51,22 +58,23 @@ export default Welcome;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    alignItems: 'center',
   },
   button: {
-    backgroundColor: '#012C3D',
-    padding: 10,
-    marginHorizontal: 80,
+    backgroundColor: '#2E4053',
+    alignSelf: 'center',
+    padding: 20,
   },
   title: {
-    fontSize: 30,
-    marginVertical: 50,
-    marginHorizontal: 60,
+    fontSize: 20,
+    marginVertical: 20,
+    marginHorizontal: 15,
     textAlign: 'center',
-    color: '#012C3D',
+    color: '#fff',
     alignItems: 'center',
     alignSelf: 'center',
     fontFamily: 'lucida grande',
+    opacity: 1,
   },
   btnText: {
       color: '#fff',
@@ -74,18 +82,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: 20,
   },
-  animation: {
-      height: 80,
-      width: 80,
-      marginTop: 65,
-      marginLeft: 30,
-      transform: [{ rotate: '-45deg'}],
+  textBox: {
+    backgroundColor: '#000',
+    opacity: 0.8,
+    marginHorizontal: 40,
+    marginVertical: '50%',
+    padding: 20,
+    flex: 1,
   },
-  animation2: {
-    height: 80,
-    width: 80,
-    marginTop: -70,
-    marginLeft: 260,
-    transform: [{ rotate: '45deg'}],
-}
 });

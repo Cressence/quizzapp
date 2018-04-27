@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Router, Scene } from 'react-native-router-flux';
-import Splash from './src/Splash/Splash';
+import Splash from './src/Splash/splash';
 import Welcome from './src/Welcome/Welcome';
 import Category from './src/Category/Category';
 import Quiz from './src/Quiz/Quiz';
@@ -26,34 +26,37 @@ class App extends Component {
       <Router 
       navigationBarStyle={{ backgroundColor: '#012C3D' }}
       titleStyle={styles.navTitle}
-      tabs
       >
         <Scene key='root'>
-        <Scene key="splash" component={Splash}  initial />
+        <Scene 
+          key="splash" 
+          component={Splash}  
+          initial
+          hideNavBar={true} />
         <Scene 
           key="welcome" 
           component={Welcome}
           leftButtonIconStyle={{tintColor: '#fff'}} 
           title="Passion" 
-          hideTabBar />
+          hideNavBar={true} />
         <Scene 
           key="category" 
           component={Category}
           leftButtonIconStyle={{tintColor: '#fff'}} 
           title="Passion" 
-          hideTabBar />
+          hideNavBar={true} />
           <Scene 
           key="quiz" 
           component={Quiz}
           leftButtonIconStyle={{tintColor: '#fff'}} 
           title="Question" 
-          hideTabBar />
+          hideNavBar={true} />
           <Scene 
           key="result" 
           component={Result}
           leftButtonIconStyle={{tintColor: '#fff'}} 
           title="Congratulations" 
-          hideTabBar />
+          hideNavBar={true} />
           </Scene>
       </Router>
     );
