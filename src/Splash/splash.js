@@ -16,14 +16,14 @@ import { Actions } from 'react-native-router-flux';
 
 class Splash extends Component {
     componentDidMount() {
-        setTimeout(() => Actions.welcome(), 3000);
+        setTimeout(() => Actions.welcome(), 100);
       }
       
   render() {
     return (
       <View style={styles.container}>
-        <Image source={require('./../assets/logo.png')} style={styles.logo} />
-        <Text style={styles.appname}>Appname</Text>
+        <Image source={require('./../assets/logo1.png')} style={styles.logo} />
+        <Text style={styles.appname}>PASSION</Text>
       </View>
     );
   }

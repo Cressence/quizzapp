@@ -10,11 +10,12 @@ import {
 
 import { Actions } from 'react-native-router-flux';
   
+// Todo: remove back button
 
 class Welcome extends Component {
 
       showField(){
-        // Actions.home();
+        Actions.category();
     }
 
   render() {
@@ -76,14 +77,14 @@ const styles = StyleSheet.create({
   animation: {
       height: 80,
       width: 80,
-      marginTop: 45,
+      marginTop: 65,
       marginLeft: 30,
       transform: [{ rotate: '-45deg'}],
   },
   animation2: {
     height: 80,
     width: 80,
-    marginTop: -80,
+    marginTop: -70,
     marginLeft: 260,
     transform: [{ rotate: '45deg'}],
 }
