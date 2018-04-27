@@ -16,14 +16,13 @@ import { Actions } from 'react-native-router-flux';
 
 class Splash extends Component {
     componentDidMount() {
-        setTimeout(() => Actions.welcome(), 100);
+        setTimeout(() => Actions.welcome(), 3000);
       }
       
   render() {
     return (
       <View style={styles.container}>
-        <Image source={require('./../assets/logo1.png')} style={styles.logo} />
-        <Text style={styles.appname}>PASSION</Text>
+        <Image source={require('./../assets/quiz.gif')} style={styles.logo} />
       </View>
     );
   }
@@ -34,17 +33,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#012C3D',
+    backgroundColor: '#2E4053',
   },
   logo: {
-    height:  100,
-    width: 100,
-    borderRadius: 50,
-  },
-  appname: {
-    color: "#fff",
-    fontSize: 30,
-    marginTop: 5,
+    flex: 1,
+    width: 300,
+    height: 300,
+    resizeMode: 'contain'
   },
 });
 

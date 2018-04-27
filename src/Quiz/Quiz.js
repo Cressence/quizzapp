@@ -110,59 +110,43 @@ class Quiz extends Component {
 
     render() {
             var fieldId = this.props.sentId;
-            return ( <
-                    View style = { styles.container } > {
-                        fieldId == 1 ? < Text style = { styles.title } > ENGINEERING < /Text>: null } {
-                            fieldId == 2 ? < Text style = { styles.title } > AGRICULTURE < /Text>: null } {
-                                fieldId == 3 ? < Text style = { styles.title } > BUSINESS < /Text>: null } <
-                                    ScrollView keyboardDismissMode = 'on-drag' > {
-                                        fieldId == 1 ?
-                                        this.engineeringQues.map((item, key) => ( <
-                                            View key = { key }
-                                            style = { styles.quizBox } >
-                                            <
-                                            Text style = { styles.question } > { item.ques } <
-                                            /Text> <
-                                            RadioGroup onSelect = {
+            return ( < View style = { styles.container } > 
+              {fieldId == 1 ? <Text style = { styles.title } > ENGINEERING </Text>: null } 
+              {fieldId == 2 ? <Text style = { styles.title } > AGRICULTURE </Text>: null }
+               {fieldId == 3 ? <Text style = { styles.title } > BUSINESS </Text>: null } 
+               <ScrollView keyboardDismissMode = 'on-drag' > 
+               {fieldId == 1 
+               ?this.engineeringQues.map((item, key) => ( 
+                   <View key = { key }
+                        style = { styles.quizBox } >
+                            <Text style = { styles.question } > { item.ques } </Text> 
+                                            <RadioGroup onSelect = {
                                                 (index, value, id) => this.onSelect(index, value, item.id) } >
-                                            <
-                                            RadioButton value = { 'Computer' } >
-                                            <
-                                            Text > Always < /Text> <
-                                            /RadioButton>
-
-                                            <
-                                            RadioButton value = { 'Electrical' } >
-                                            <
-                                            Text > Often < /Text> <
-                                            /RadioButton>
-
-                                            <
-                                            RadioButton value = { 'Mechnical' } >
-                                            <
-                                            Text > Seldom < /Text> <
-                                            /RadioButton> <
-                                            RadioButton value = { item.D } >
-                                            <
-                                            Text > Never < /Text> <
-                                            /RadioButton> <
-                                            /RadioGroup> <
-                                            /View>
-                                        )) :
-                                            null
+                                            <RadioButton value = "Computer" >
+                                              <Text> {item.A} </Text> 
+                                            </RadioButton>
+                                            <RadioButton value = "Electrical" >
+                                              <Text > {item.B} </Text> 
+                                            </RadioButton>
+                                            <RadioButton value = "Mechnical" >
+                                              <Text> {item.C}</Text> 
+                                            </RadioButton> 
+                                            <RadioButton value = "Civil" >
+                                              <Text> {item.D}</Text> 
+                                            </RadioButton> 
+                                            </RadioGroup> 
+                                            </View>
+                                        )) 
+                                        : null
                                     }
 
-                                <
-                                /ScrollView> <
-                                TouchableOpacity
+                                </ScrollView> 
+                                <TouchableOpacity
                                 style = { styles.button }
-                                onPress = {
-                                        () => this.showResult({ result: this.submitAnswer() }) } >
-                                    <
-                                    Text style = {
-                                        { color: "#fff", alignSelf: 'center', justifyContent: 'center' } } > Submit < /Text> <
-                                    /TouchableOpacity> <
-                                    /View>
+                                onPress = {() => this.showResult({ result: this.submitAnswer() }) } >
+                                    <Text style = {{ color: "#fff", alignSelf: 'center', justifyContent: 'center' } } > Submit </Text> 
+                                        </TouchableOpacity> 
+                                        </View>
                             );
                         }
                     }
@@ -179,7 +163,7 @@ class Quiz extends Component {
                             backgroundColor: '#ccc',
                             padding: 10,
                             marginVertical: 30,
-                            height: 250,
+                            height: 260,
                             width: 350,
                         },
                         title: {
