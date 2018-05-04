@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 20,
     marginHorizontal: 60,
-    marginVertical: 40,
+    marginVertical: 40,                                       
   },
   instruction: {
     color: '#fff',
